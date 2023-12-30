@@ -1,0 +1,33 @@
+{
+  "name": "@is-cool.me/cli",
+  "version": "1.0.0",
+  "description": "Register your own subdomain with is-cool.me using your command line.",
+  "main": "src/index.js",
+  "bin": {
+    "lh": "src/index.js",
+    "is-cool.me": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/is-cool-me/cli.git"
+  },
+  "keywords": [],
+  "author": "Light <contact@lighthosting.eu.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/is-cool-me/cli/issues"
+  },
+  "homepage": "https://npmjs.com/@is-cool.me/cli",
+  "dependencies": {
+    "@octokit/auth-oauth-device": "^6.0.1",
+    "@octokit/core": "^5.0.1",
+    "cli-handle-unhandled": "^1.1.1",
+    "cli-meow-help": "^3.1.0",
+    "cli-welcome": "^2.2.2",
+    "conf": "^10.2.0",
+    "js-base64": "^3.7.5",
+    "meow": "^9.0.0",
+    "node-fetch": "^2.7.0",
+    "prompts": "^2.4.2"
+  }
+}
