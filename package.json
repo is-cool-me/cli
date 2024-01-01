@@ -4,7 +4,7 @@
   "description": "Register your own subdomain with is-cool.me using your command line.",
   "main": "src/index.js",
   "bin": {
-    "lh": "src/index.js",
+    "ic": "src/index.js",
     "is-cool.me": "src/index.js"
   },
   "repository": {

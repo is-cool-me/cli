@@ -65,7 +65,7 @@ let fullContent = `{
         "email": "${email}"
     },
 
-    "record": {
+    "records": {
         ${record}
     },
 
@@ -75,41 +75,30 @@ let fullContent = `{
 
     const contentEncoded = Base64.encode(fullContent);
 
-const getResponse = await fetch(
-    `https://api.github.com/repos/is-cool-me/register/contents/domains/${subdomain}.${domain}.json`,
-    {
-        method: "GET",
-        headers: {
-            "User-Agent": username,
-        },
-    }
-);
-
-const getJson = await getResponse.json();
-const sha = getJson.sha;
-
-octokit
-    .request("PUT /repos/{owner}/{repo}/contents/{path}", {
-        owner: username,
-        repo: forkName,
-        path: "domains/" + subdomain + "." + domain + ".json",
-        message: `feat(domain): add \`${subdomain}.${domain}\``,
-        content: contentEncoded,
-        sha: sha // Include the sha parameter
+    fetch(
+        `https://api.github.com/repos/is-cool-me/register/contents/domains/${subdomain}.${domain}.json`,
+        {
+            method: "GET",
+            headers: {
+                "User-Agent": username,
+            },
+        }
+    ).then(async (res) => {
+        if(res.status && res.status == 404) {
+            octokit
+                .request("PUT /repos/{owner}/{repo}/contents/{path}", {
+                    owner: username,
+                    repo: forkName,
+                    path: "domains/" + subdomain + "." + domain + ".json",
+                    message: `feat(domain): add \`${subdomain}.${domain}\``,
+                    content: contentEncoded
+                })
+                .catch((err) => { throw new Error(err); });
+        } else throw new Error("That subdomain is taken!");
     })
-    .catch((err) => { throw new Error(err); });
-
 
     await delay(2000);
 
-const prCheckResponse = await octokit.request("GET /repos/{owner}/{repo}/pulls", {
-    owner: "is-cool-me",
-    repo: "register",
-    head: `${username}:main`,
-});
-
-if (prCheckResponse.data.length === 0) {
-    // No existing pull request, proceed to create a new one
     const pr = await octokit.request("POST /repos/{owner}/{repo}/pulls", {
         owner: "is-cool-me",
         repo: "register",
@@ -117,13 +106,7 @@ if (prCheckResponse.data.length === 0) {
         body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://cli.is-cool.me).`,
         head: username + ":main",
         base: "main"
-    });
-
-    console.log(`\nYour pull request has been submitted.\nYou can check the status of your pull request here: ${pr.data.html_url}`);
-} else {
-    console.error("A pull request already exists for is-cool-me:main.");
-}
-
+    })
 
     console.log(`\nYour pull request has been submitted.\nYou can check the status of your pull request here: ${pr.data.html_url}`);
 }
