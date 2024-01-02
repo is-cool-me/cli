@@ -1,6 +1,6 @@
 {
   "name": "@is-cool.me/cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Register your own subdomain with is-cool.me using your command line.",
   "main": "src/index.js",
   "bin": {
