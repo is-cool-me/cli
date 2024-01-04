@@ -39,4 +39,4 @@ is-cool.me debug
 
 Open an issue stating your issue and provide the output from the debug command as well.
 ### Credits
-Credit of this repo goes to <a href="https://github.com/open-domains/register">Open Domains</a>.
+Credit of this repo goes to <a href="https://github.com/open-domains/cli">Open Domains</a>.
