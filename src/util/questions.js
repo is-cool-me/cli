@@ -13,6 +13,16 @@ const check = [
         type: "text",
         name: "subdomain",
         message: "What subdomain would you like to check?"
+    },
+
+    {
+        type: "select",
+        name: "accept_terms",
+        message: "Do you accept the terms and conditions?",
+        choices: [
+            { value: "Yes" },
+            { value: "No" }
+        ]
     }
 ]
 
@@ -59,6 +69,16 @@ const register = [
         choices: [
             { title: "No", value: "false" },
             { title: "Yes", value: "true" }
+        ]
+    },
+
+    {
+        type: "select",
+        name: "accept_terms",
+        message: "Do you accept the terms and conditions?",
+        choices: [
+            { value: "Yes" },
+            { value: "No" }
         ]
     }
 ]
