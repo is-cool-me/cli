@@ -30,6 +30,11 @@ module.exports = async function register() {
 
     const response = await prompts(questions);
 
+    if (response.accept_terms !== "Yes") {
+        console.log("You have to accept the terms to proceed.");
+        return;
+    }
+
     let forkName;
 
     await octokit.request("POST /repos/{owner}/{repo}/forks", {
@@ -108,5 +113,13 @@ let fullContent = `{
         base: "main"
     })
 
+    await delay(20000);
+
+    await octokit.request("POST /repos/{owner}/{repo}/pulls/{pull_number}/comments", {
+    owner: "is-cool-me",
+    repo: "register",
+    pull_number: pr.data.number,  // Use the PR number
+    body: "I have read the CLA Document and I hereby sign the CLA"
+})
     console.log(`\nYour pull request has been submitted.\nYou can check the status of your pull request here: ${pr.data.html_url}`);
 }
