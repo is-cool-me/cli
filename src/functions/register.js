@@ -113,7 +113,7 @@ let fullContent = `{
         base: "main"
     })
     
-    await delay(10000);
+    await delay(3000);
 
     await octokit.request("POST /repos/{owner}/{repo}/issues/{issue_number}/comments", {
     owner: "is-cool-me",
