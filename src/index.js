@@ -14,10 +14,13 @@ const { clear, debug } = flags;
 
 	input.includes("account") && functions.account();
 	input.includes("check") && functions.check();
+	input.includes("domains") && functions.domains();
 	input.includes("help") && cli.showHelp(0);
 	input.includes("login") && functions.login();
 	input.includes("logout") && functions.logout();
 	input.includes("register") && functions.register();
+	input.includes("remove") && functions.remove();
+	input.includes("update") && functions.update();
 
 	debug && console.log(flags);
 })();

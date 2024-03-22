@@ -13,16 +13,6 @@ const check = [
         type: "text",
         name: "subdomain",
         message: "What subdomain would you like to check?"
-    },
-
-    {
-        type: "select",
-        name: "accept_terms",
-        message: "Do you accept the terms and conditions?",
-        choices: [
-            { value: "Yes" },
-            { value: "No" }
-        ]
     }
 ]
 
@@ -67,23 +57,86 @@ const register = [
         name: "proxy_state",
         message: "Should the record be proxied through Cloudflare?",
         choices: [
-            { title: "No", value: "false" },
+            { title: "No (recommended)", value: "false" },
             { title: "Yes", value: "true" }
+        ]
+    }
+]
+
+const remove = [
+    {
+        type: "select",
+        name: "domain",
+        message: "What domain does your subdomain use?",
+        choices: [
+            { value: "is-cool.me" },
+            { value: "is-app.tech" }
         ]
     },
 
     {
+        type: "text",
+        name: "subdomain",
+        message: "What is your subdomain?"
+    },
+
+    {
+        type: "confirm",
+        name: "confirmation",
+        message: "Are you sure you want to delete your subdomain?"
+    }
+]
+
+const update = [
+    {
         type: "select",
-        name: "accept_terms",
-        message: "Do you accept the terms and conditions?",
+        name: "domain",
+        message: "What domain does your subdomain use?",
         choices: [
-            { value: "Yes" },
-            { value: "No" }
+            { value: "is-cool.me" },
+            { value: "is-app.tech" }
+        ]
+    },
+
+    {
+        type: "text",
+        name: "subdomain",
+        message: "What is your subdomain?"
+    },
+
+    {
+        type: "select",
+        name: "record",
+        message: "What type of record do you want to use?",
+        choices: [
+            { value: "A" },
+            { value: "AAAA" },
+            { value: "CNAME" },
+            { value: "MX" },
+            { value: "TXT" }
+        ]
+    },
+
+    {
+        type: "text",
+        name: "record_value",
+        message: "What should the value of the record be?"
+    },
+
+    {
+        type: "select",
+        name: "proxy_state",
+        message: "Should the record be proxied through Cloudflare?",
+        choices: [
+            { title: "No (recommended)", value: "false" },
+            { title: "Yes", value: "true" }
         ]
     }
 ]
 
 module.exports = {
     check,
-    register
+    register,
+    remove,
+    update
 }

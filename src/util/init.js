@@ -6,7 +6,7 @@ module.exports = ({ clear = true }) => {
 	unhandled();
 
 	welcome({
-		title: "is-cool.me",
+		title: "is-cool-me",
 		tagLine: "CLI",
 		description: package.description,
 		version: package.version,

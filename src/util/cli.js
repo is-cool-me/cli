@@ -30,13 +30,16 @@ const flags = {
 const commands = {
 	account: { desc: "Get information about your account." },
 	check: { desc: "Check if a subdomain is available." },
+	domains: { desc: "Get a list of all your domains." },
 	login: { desc: "Login to your GitHub account." },
 	logout: { desc: "Logout of your GitHub account." },
-	register: { desc: "Register a subdomain." }
+	register: { desc: "Register a subdomain." },
+	remove: { desc: "Remove your subdomain." },
+	update: { desc: "Update your subdomain." }
 }
 
 const helpText = meowHelp({
-	name: "is-cool.me",
+	name: "ic",
 	flags,
 	commands
 })

@@ -4,7 +4,7 @@ const account = new Conf();
 module.exports = function logout() {
     if(!account.has("username")) {
         console.log("You are not logged in!");
-        console.log("To log in, run the command: `is-cool.me login`")
+        console.log("To log in, run the command: `ic login`")
         return;
     }
 

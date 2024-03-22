@@ -5,13 +5,13 @@ const { Octokit } = require("@octokit/core");
 const prompts = require("prompts");
 
 const account = new Conf();
-const questions = require("../util/questions").register;
+const questions = require("../util/questions").update;
 
 function delay(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-module.exports = async function register() {
+module.exports = async function update() {
     if(!account.has("username")) {
         console.log("You are not logged in!");
         console.log("To log in, run the command: `ic login`");
@@ -50,7 +50,22 @@ module.exports = async function register() {
     }
 
     if(checkRes.status === 500) return console.log("\nAn error occurred, please try again later.");
-    if(checkRes.message === "DOMAIN_UNAVAILABLE") return console.log("\nSorry, that subdomain is taken!");
+    if(checkRes.    message === "DOMAIN_AVAILABLE") return console.log("\nThat subdomain does not exist!");
+
+    let lookupRes;
+
+    try {
+        const result = await axios.get(`https://api.is-cool.me/lookup/domain?domain=${subdomain}.${domain}`);
+
+        lookupRes = result.data;
+    } catch(err) {
+        lookupRes = err.response;
+    }
+
+    if(lookupRes.status === 500) return console.log("\nAn error occurred, please try again later.");
+    if(lookupRes.owner.email.replace(" (at) ", "@") !== email) return console.log("\nYou do not own that domain!");
+
+    const contentEncoded = Base64.encode(fullContent);
 
     let forkName;
 
@@ -70,7 +85,7 @@ module.exports = async function register() {
 
     let record = `"${recordType}": ${recordValue}`;
 
-let fullContent = `{
+const fullContent = `{
     "domain": "${domain}",
     "subdomain": "${subdomain}",
 
@@ -86,14 +101,19 @@ let fullContent = `{
 }
 `;
 
-    const contentEncoded = Base64.encode(fullContent);
+    const file = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
+        owner: "is-cool-me",
+        repo: "register",
+        path: "domains/" + subdomain + "." + domain + ".json"
+    })
 
     await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
         owner: username,
         repo: forkName,
         path: "domains/" + subdomain + "." + domain + ".json",
-        message: `feat(domain): add \`${subdomain}.${domain}\``,
-        content: contentEncoded
+        message: `feat(domain): update \`${subdomain}.${domain}\``,
+        content: contentEncoded,
+        sha: file.data.sha
     }).catch((err) => { throw new Error(err); })
 
     await delay(2000);
@@ -101,8 +121,8 @@ let fullContent = `{
     const pr = await octokit.request("POST /repos/{owner}/{repo}/pulls", {
         owner: "is-cool-me",
         repo: "register",
-        title: `Register ${subdomain}.${domain}`,
-        body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
+        title: `Update ${subdomain}.${domain}`,
+        body:  `Updated \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
         head: username + ":main",
         base: "main"
     })

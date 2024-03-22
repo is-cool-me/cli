@@ -8,7 +8,7 @@ const account = new Conf();
 module.exports = async function login() {
     if(account.has("username")) {
         console.log(`You are already logged in as ${account.get("username")}!`);
-        console.log("To log out, run the command: `is-cool.me logout`");
+        console.log("To log out, run the command: `ic logout`");
         return;
     }
 

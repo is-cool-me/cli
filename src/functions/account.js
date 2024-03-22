@@ -9,7 +9,7 @@ module.exports = function account() {
 
     if(!username) {
         console.log("You are not logged in!");
-        console.log("To log in, run the command: `is-cool.me login`");
+        console.log("To log in, run the command: `ic login`");
         return;
     }
 
