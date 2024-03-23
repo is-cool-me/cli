@@ -1,11 +1,10 @@
 {
   "name": "@is-cool.me/cli",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Register a free subdomain with is-cool-me using your command line.",
   "main": "src/index.js",
   "bin": {
-    "domains": "src/index.js",
-    "fd": "src/index.js",
+    "ic": "src/index.js",
     "is-cool-me": "src/index.js"
   },
   "repository": {
