@@ -63,7 +63,7 @@ module.exports = async function update() {
     }
 
     if(lookupRes.status === 500) return console.log("\nAn error occurred, please try again later.");
-    if(lookupRes.owner.email.replace(" (at) ", "@") !== email) return console.log("\nYou do not own that domain!");
+    if (lookupRes.owner.email.replace(" (at) ", "@") !== email && lookupRes.owner.username !== username) return console.log("\nYou do not own that domain!");
 
     const contentEncoded = Base64.encode(fullContent);
 
