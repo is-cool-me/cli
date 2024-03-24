@@ -90,6 +90,7 @@ const fullContent = `{
     "subdomain": "${subdomain}",
 
     "owner": {
+	"username": "${username}",
         "email": "${email}"
     },
 
