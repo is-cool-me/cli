@@ -34,7 +34,7 @@ module.exports = async function remove() {
     let checkRes;
 
     try {
-        const result = await axios.get(`https://api.is-cool.me/check?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
 
         checkRes = result.data;
     } catch(err) {
@@ -47,7 +47,7 @@ module.exports = async function remove() {
     let lookupRes;
 
     try {
-        const result = await axios.get(`https://api.is-cool.me/lookup/domain?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-epic.me/lookup/domain?domain=${subdomain}.${domain}`);
 
         lookupRes = result.data;
     } catch(err) {
@@ -87,7 +87,7 @@ module.exports = async function remove() {
         owner: "is-cool-me",
         repo: "register",
         title: `Remove ${subdomain}.${domain}`,
-        body:  `Removed \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
+        body:  `Removed \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
         head: username + ":main",
         base: "main"
     })

@@ -18,7 +18,7 @@ module.exports = async function domains() {
     let res;
 
     try {
-        const request = await axios.get(`https://api.is-cool.me/lookup/user?email=${email}`);
+        const request = await axios.get(`https://api.is-epic.me/lookup/user?email=${email}`);
 
         res = request;
     } catch(err) {

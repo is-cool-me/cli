@@ -42,7 +42,7 @@ module.exports = async function update() {
     let checkRes;
 
     try {
-        const result = await axios.get(`https://api.is-cool.me/check?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
 
         checkRes = result.data;
     } catch(err) {
@@ -55,7 +55,7 @@ module.exports = async function update() {
     let lookupRes;
 
     try {
-        const result = await axios.get(`https://api.is-cool.me/lookup/domain?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-epic.me/lookup/domain?domain=${subdomain}.${domain}`);
 
         lookupRes = result.data;
     } catch(err) {
@@ -123,7 +123,7 @@ const fullContent = `{
         owner: "is-cool-me",
         repo: "register",
         title: `Update ${subdomain}.${domain}`,
-        body:  `Updated \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
+        body:  `Updated \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
         head: username + ":main",
         base: "main"
     })

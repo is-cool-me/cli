@@ -12,7 +12,7 @@ module.exports = async function check() {
     let res;
 
     try {
-        const request = await axios.get(`https://api.is-cool.me/check?domain=${subdomain}.${domain}`);
+        const request = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
 
         res = request;
     } catch(err) {

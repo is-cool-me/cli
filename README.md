@@ -8,7 +8,7 @@ Using the is-cool-me CLI is easy!
 All you need to do is run the following command:
 
 ```bash
-npm install @is-cool.me/cli -g
+npm install @is-epic.me/cli -g
 ```
 
 ...and that's it!

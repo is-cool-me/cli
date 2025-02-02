@@ -42,7 +42,7 @@ module.exports = async function register() {
     let checkRes;
 
     try {
-        const result = await axios.get(`https://api.is-cool.me/check?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
 
         checkRes = result.data;
     } catch(err) {
@@ -103,7 +103,7 @@ let fullContent = `{
         owner: "is-cool-me",
         repo: "register",
         title: `Register ${subdomain}.${domain}`,
-        body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
+        body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
         head: username + ":main",
         base: "main"
     })
