@@ -87,7 +87,7 @@ module.exports = async function remove() {
         owner: "is-cool-me",
         repo: "register",
         title: `Remove ${subdomain}.${domain}`,
-        body:  `Removed \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
+        body:  `Removed \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
         head: username + ":main",
         base: "main"
     })

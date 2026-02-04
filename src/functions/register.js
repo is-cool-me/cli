@@ -103,7 +103,7 @@ let fullContent = `{
         owner: "is-cool-me",
         repo: "register",
         title: `Register ${subdomain}.${domain}`,
-        body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
+        body:  `Added \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
         head: username + ":main",
         base: "main"
     })
