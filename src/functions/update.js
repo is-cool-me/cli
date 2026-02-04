@@ -50,7 +50,7 @@ module.exports = async function update() {
     }
 
     if(checkRes.status === 500) return console.log("\nAn error occurred, please try again later.");
-    if(checkRes.    message === "DOMAIN_AVAILABLE") return console.log("\nThat subdomain does not exist!");
+    if(checkRes.message === "DOMAIN_AVAILABLE") return console.log("\nThat subdomain does not exist!");
 
     let lookupRes;
 
@@ -64,8 +64,6 @@ module.exports = async function update() {
 
     if(lookupRes.status === 500) return console.log("\nAn error occurred, please try again later.");
     if (lookupRes.owner.email.replace(" (at) ", "@") !== email && lookupRes.owner.username !== username) return console.log("\nYou do not own that domain!");
-
-    const contentEncoded = Base64.encode(fullContent);
 
     let forkName;
 
@@ -102,6 +100,8 @@ const fullContent = `{
 }
 `;
 
+    const contentEncoded = Base64.encode(fullContent);
+
     const file = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
         owner: "is-cool-me",
         repo: "register",
@@ -123,7 +123,7 @@ const fullContent = `{
         owner: "is-cool-me",
         repo: "register",
         title: `Update ${subdomain}.${domain}`,
-        body:  `Updated \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-epic.me/cli).`,
+        body:  `Updated \`${subdomain}.${domain}\` using the [CLI](https://www.npmjs.com/package/@is-cool.me/cli).`,
         head: username + ":main",
         base: "main"
     })
