@@ -44,14 +44,14 @@ module.exports = async function register() {
     try {
         const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
 
-        checkRes = result.data;
+        checkRes = result;
     } catch(err) {
         checkRes = err.response;
     }
 
     if(!checkRes) return console.log("\nAn error occurred, please try again later.");
     if(checkRes.status === 500) return console.log("\nAn error occurred, please try again later.");
-    if(checkRes.message === "DOMAIN_UNAVAILABLE") return console.log("\nSorry, that subdomain is taken!");
+    if(checkRes.data.message === "DOMAIN_UNAVAILABLE") return console.log("\nSorry, that subdomain is taken!");
 
     let forkName;
 
