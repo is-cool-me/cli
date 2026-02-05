@@ -51,6 +51,7 @@ module.exports = async function register() {
 
     if(!checkRes) return console.log("\nAn error occurred, please try again later.");
     if(checkRes.status === 500) return console.log("\nAn error occurred, please try again later.");
+    if(!checkRes.data) return console.log("\nAn error occurred, please try again later.");
     if(checkRes.data.message === "DOMAIN_UNAVAILABLE") return console.log("\nSorry, that subdomain is taken!");
 
     let forkName;
