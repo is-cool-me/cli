@@ -42,7 +42,7 @@ module.exports = async function update() {
     let checkRes;
 
     try {
-        const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-into.tech/check?domain=${subdomain}.${domain}`);
 
         checkRes = result.data;
     } catch(err) {
@@ -55,7 +55,7 @@ module.exports = async function update() {
     let lookupRes;
 
     try {
-        const result = await axios.get(`https://api.is-epic.me/lookup/domain?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-into.tech/lookup/domain?domain=${subdomain}.${domain}`);
 
         lookupRes = result.data;
     } catch(err) {

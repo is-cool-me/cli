@@ -42,7 +42,7 @@ module.exports = async function register() {
     let checkRes;
 
     try {
-        const result = await axios.get(`https://api.is-epic.me/check?domain=${subdomain}.${domain}`);
+        const result = await axios.get(`https://api.is-into.tech/check?domain=${subdomain}.${domain}`);
 
         checkRes = result;
     } catch(err) {
