@@ -5,7 +5,6 @@ const check = [
         message: "What domain do you want to check?",
         choices: [
             { value: "is-epic.me" },
-            { value: "is-awsm.tech" },
             { value: "is-into.tech" }
         ]
     },
@@ -24,7 +23,6 @@ const register = [
         message: "What domain do you want your subdomain to use?",
         choices: [
             { value: "is-epic.me" },
-            { value: "is-awsm.tech" },
             { value: "is-into.tech" }
         ]
     },
@@ -72,7 +70,6 @@ const remove = [
         message: "What domain does your subdomain use?",
         choices: [
             { value: "is-epic.me" },
-            { value: "is-awsm.tech" },
             { value: "is-into.tech" }
         ]
     },
@@ -97,7 +94,6 @@ const update = [
         message: "What domain does your subdomain use?",
         choices: [
             { value: "is-epic.me" },
-            { value: "is-awsm.tech" },
             { value: "is-into.tech" }
         ]
     },
