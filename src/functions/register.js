@@ -49,6 +49,7 @@ module.exports = async function register() {
         checkRes = err.response;
     }
 
+    if(!checkRes) return console.log("\nAn error occurred, please try again later.");
     if(checkRes.status === 500) return console.log("\nAn error occurred, please try again later.");
     if(checkRes.message === "DOMAIN_UNAVAILABLE") return console.log("\nSorry, that subdomain is taken!");
 
