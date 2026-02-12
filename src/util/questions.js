@@ -4,7 +4,7 @@ const check = [
         name: "domain",
         message: "What domain do you want to check?",
         choices: [
-            { value: "is-epic.me" },
+            { value: "is-pro.dev" },
             { value: "is-into.tech" }
         ]
     },
@@ -22,7 +22,7 @@ const register = [
         name: "domain",
         message: "What domain do you want your subdomain to use?",
         choices: [
-            { value: "is-epic.me" },
+            { value: "is-pro.dev" },
             { value: "is-into.tech" }
         ]
     },
@@ -69,7 +69,7 @@ const remove = [
         name: "domain",
         message: "What domain does your subdomain use?",
         choices: [
-            { value: "is-epic.me" },
+            { value: "is-pro.dev" },
             { value: "is-into.tech" }
         ]
     },
@@ -93,7 +93,7 @@ const update = [
         name: "domain",
         message: "What domain does your subdomain use?",
         choices: [
-            { value: "is-epic.me" },
+            { value: "is-pro.dev" },
             { value: "is-into.tech" }
         ]
     },
